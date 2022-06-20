@@ -1,9 +1,9 @@
 public class Solution {
     public static void main(String[] args) {
-        String str = "12.84";
-        //напишите тут ваш код
-
-
+        Window window = new Window();
+        window.printSize();
+        window.changeSize(4, 5);
+        window.printSize();
     }
 }
 
