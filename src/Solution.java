@@ -1,23 +1,22 @@
-import java.math.BigInteger;
+
 public class Solution {
-
-
-    public static BigInteger factorial(int value) {
-        BigInteger intRezul = new BigInteger("1");
-        for (int i = 1; i < value + 1; i++) {
-            BigInteger cikl = new BigInteger("" + (i));
-            BigInteger intRezul2 = intRezul.multiply(cikl);
-            return intRezul2;
-         }
-
-    }
-
     public static void main(String[] args) {
-        int value = 3;
-        System.out.println(factorial(value));
+       int[] arr = {3,5,20,8,0,3,10};
+       printOddNumbers(arr);
     }
-
-
-
-
+    public static void printOddNumbers(int[] arr) {
+        StringBuilder stroka = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 != 0) {
+               stroka.append("," + arr[i]);
+            }
+        }
+        if (stroka.length() == 0) {
+            System.out.println();
+        }
+        else {
+            stroka.deleteCharAt(0);
+            System.out.print(stroka + "\n");
+        }
+    }
 } // не удалять
