@@ -1,22 +1,33 @@
-
-public class Solution {
+    public class Solution {
     public static void main(String[] args) {
-       int[] arr = {3,5,20,8,0,3,10};
-       printOddNumbers(arr);
+        String[] roles = new String[]{
+                "Городничий",
+                "Аммос Федорович",
+                "Артемий Филиппович",
+                "Лука",
+                "Лука Лукич",
+                "no name"
+        };
+        String[] textLines = new String[]{
+                "Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор.",
+                "Аммос Федорович: Как ревизор?",
+                "Артемий Филиппович: Как ревизор?",
+                "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем.",
+                "Аммос Федорович: Вот те на!",
+                "Артемий Филиппович: Вот не было заботы, так подай!",
+                "Лука Лукич: Господи боже! еще и с секретным предписаньем!",
+                "Лука: Господи боже! Я уронил своё пасхальное яйцо от неожиданности!"
+        };
+        printTextPerRole(roles, textLines);
     }
-    public static void printOddNumbers(int[] arr) {
-        StringBuilder stroka = new StringBuilder();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % 2 != 0) {
-               stroka.append("," + arr[i]);
+
+        public static String printTextPerRole(String[] roles, String[] textLines) {
+            int counterRoles = 0;
+            int counterTextLines = 0;
+            if (textLines[counterTextLines].startsWith(roles[counterRoles] + ":", 0)) {
+
             }
-        }
-        if (stroka.length() == 0) {
-            System.out.println();
-        }
-        else {
-            stroka.deleteCharAt(0);
-            System.out.print(stroka + "\n");
-        }
+
+
     }
 } // не удалять
