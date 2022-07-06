@@ -30,14 +30,22 @@
         printTextPerRole(roles, textLines);
     }
 
-        public static String printTextPerRole(String[] roles, String[] textLines) {
-            StringBuilder scenarii = new StringBuilder();
-            int counterRoles = 0;
-            int counterTextLines = 0;
-                if (textLines[counterTextLines].startsWith(roles[counterRoles] + ":", 0)) {
-                    scenarii.insert(0,textLines[counterTextLines]);
-            }
-// trim() - отсечь на концах строки пустые символы;
+    public static String printTextPerRole(String[] roles, String[] textLines) {
+        StringBuilder scenarii = new StringBuilder();
+        for (int i = 0; i < roles.length; i++) {
+            scenarii.append(roles[i]).append(":").append("\n");
 
+            for (int j = 0; j < textLines.length; j++) {
+                if (textLines[j].startsWith(roles[i] + ":", 0)) {
+//                    scenarii.append((j + 1) + textLines[j].replaceFirst(roles[i] + ": ", ") ") + "\n");
+                    scenarii.append(j + 1)
+                            .append(textLines[j].replaceFirst(roles[i] + ": ", ") "))
+                            .append("\n");
+                }
+            }
+            scenarii.append("\n");
+        }
+        System.out.println(String.valueOf(scenarii));
+        return String.valueOf(scenarii);
     }
 } // не удалять
