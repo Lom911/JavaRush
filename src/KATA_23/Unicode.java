@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class Unicode {
     public static char charExpression(int a) {
         return (char) ('\\' + a);

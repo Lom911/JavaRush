@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class RobotXY {
 
 

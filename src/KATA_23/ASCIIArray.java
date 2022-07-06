@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class ASCIIArray {
     public static void main(String[] args) {
         byte[] example = {72, 101, 108, 108, 111, 33};

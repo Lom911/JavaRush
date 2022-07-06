@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class DetiGroup {
     public static void main(String[] args) {
         int age = 7;

@@ -1,3 +1,5 @@
+package KATA_23;
+
 public final class ComplexNumberTest {
     public static void main(String[] args) {
 

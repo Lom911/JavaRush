@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class OverrideTest {
     public static void main(String[] args) {
         Employee sam = new Employee("Sam", "Microsoft");

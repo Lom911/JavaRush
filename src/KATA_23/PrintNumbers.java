@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class PrintNumbers {
     public static void main(String[] args) {
         int[] ints = {3,5,20,8,7,3,100};

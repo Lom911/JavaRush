@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class CatAndDog {
     public static void main(String[] args) {
         Dog dog = new Dog();

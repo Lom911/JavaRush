@@ -1,4 +1,6 @@
-    public class Solution {
+package KATA_23;
+
+public class Solution {
     public static void main(String[] args) {
         String[] roles = new String[]{
                 "Городничий",

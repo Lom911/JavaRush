@@ -1,3 +1,5 @@
+package KATA_23;
+
 public class HashCodeAndEquals {
     public static void main(String[] args) {
 //        ComplexNumber cn1 = new ComplexNumber(2.3412,7.2434);

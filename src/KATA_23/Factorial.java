@@ -1,3 +1,5 @@
+package KATA_23;
+
 import java.math.BigInteger;
 
 public class Factorial {

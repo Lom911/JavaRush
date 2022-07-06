@@ -1,3 +1,5 @@
+package KATA_23;
+
 import java.util.Arrays;
 
 public class SliynieArrays {
