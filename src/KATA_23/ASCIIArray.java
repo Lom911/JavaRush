@@ -1,5 +1,7 @@
 package KATA_23;
 
+import java.util.Arrays;
+
 public class ASCIIArray {
     public static void main(String[] args) {
         byte[] example = {72, 101, 108, 108, 111, 33};
@@ -36,7 +38,7 @@ public class ASCIIArray {
 
         @Override
         public CharSequence subSequence(int start, int end) {
-            return new AsciiCharSequence(java.util.Arrays.copyOfRange
+            return new AsciiCharSequence(Arrays.copyOfRange
                     (byteName, start, end));
         }
 
