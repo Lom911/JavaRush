@@ -44,7 +44,7 @@ public static class UntrustworthyMailWorker implements MailService {
 }
 
     public static class Spy implements MailService {
-        public Logger log;
+        private final Logger log;
 
         public Spy(Logger logger) {
             log = logger;
@@ -54,13 +54,10 @@ public static class UntrustworthyMailWorker implements MailService {
         public Sendable processMail(Sendable mail) {
             if (mail instanceof MailMessage) {
                 MailMessage mess = (MailMessage) mail;
-                String from = mess.getFrom();
-                String to = mess.getTo();
-                String message = mess.getMessage();
-                if (from.contains("Austin Powers") || to.contains("Austin Powers")) {
-                    log.warning("Detected target mail correspondence: from " + from + " to " + to + " \"" + message + "\"");
+                if (mess.getFrom().contains("Austin Powers") || mess.getTo().contains("Austin Powers")) {
+                    log.warning("Detected target mail correspondence: from " + mess.getFrom() + " to " + mess.getTo() + " \"" + mess.getMessage() + "\"");
                 } else {
-                    log.log(Level.INFO, "Usual correspondence: from " + from + " to " + to);
+                    log.log(Level.INFO, "Usual correspondence: from " + mess.getFrom() + " to " + mess.getTo());
                 }
             }
             return mail;
@@ -118,164 +115,6 @@ public static class UntrustworthyMailWorker implements MailService {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*******************************
- это решения
-
- public static class UntrustworthyMailWorker implements MailService {
-
- private final MailService realMailService = new RealMailService();
-
- private MailService[] mailServices;
-
- public UntrustworthyMailWorker(MailService[] services){
-
- mailServices = services;
-
- }
-
- public MailService getRealMailService(){
-
- return realMailService;
-
- }
-
- @Override
-
- public Sendable processMail(Sendable mail) {
-
- Sendable processed = mail;
-
- for (int i = 0; i < mailServices.length; i++) {
-
- processed = mailServices[i].processMail(processed);
-
- }
-
- return realMailService.processMail(mail);
-
- }
-
- }
-
-
-3) Thief – вор, который ворует самые ценные посылки и игнорирует все остальное. Вор принимает в конструкторе
-
-переменную int – минимальную стоимость посылки, которую он будет воровать. Также, в данном классе должен
-
-присутствовать метод getStolenValue, который возвращает суммарную стоимость всех посылок, которые он своровал.
-
-Воровство происходит следующим образом: вместо посылки, которая пришла вору, он отдает новую, такую же, только с
-
-нулевой ценностью и содержимым посылки "stones instead of {content}".
-
-
-
-    public static class Thief implements MailService {
-
-        private int minPrice = 0;
-
-        private int stolenPrice = 0;
-
-        public Thief(int minPrice){
-
-            this.minPrice = minPrice;
-
-        }
-
-        public int getStolenValue(){
-
-            return stolenPrice;
-
-        }
-
-        @Override
-
-        public Sendable processMail(Sendable mail) {
-
-            if(mail.getClass() == MailPackage.class) {
-
-                Package pac = ((MailPackage)mail).getContent();
-
-                if(pac.getPrice() >= minPrice){
-
-                    stolenPrice += pac.getPrice();
-
-                    mail = new MailPackage(mail.getFrom(), mail.getTo(),new Package("stones instead of " + pac.getContent(), 0));
-
-                }
-
-            }
-
-            return mail;
-
-        }
-
-    }
-
-/*
-
-4) Inspector – Инспектор, который следит за запрещенными и украденными посылками и бьет тревогу в виде исключения,
-
-если была обнаружена подобная посылка. Если он заметил запрещенную посылку с одним из запрещенных содержимым
-
-("weapons" и "banned substance"), то он бросает IllegalPackageException. Если он находит посылку, состаящую из
-
-камней (содержит слово "stones"), то тревога прозвучит в виде StolenPackageException. Оба исключения вы должны
-
-объявить самостоятельно в виде непроверяемых исключений.
-
-
-
-    public static class IllegalPackageException extends RuntimeException {}
-
-    public static class StolenPackageException extends RuntimeException {}
-
-    public static class Inspector implements MailService {
-
-        @Override
-
-        public Sendable processMail(Sendable mail) {
-
-            if(mail.getClass() == MailPackage.class) {
-
-                Package pac = ((MailPackage)mail).getContent();
-
-                String content = pac.getContent();
-
-                if(content.indexOf("stones instead of ") == 0) {
-
-                    throw new StolenPackageException();
-
-                } else if(content.equals(WEAPONS) || content.equals(BANNED_SUBSTANCE)){
-
-                    throw new IllegalPackageException();
-
-                }
-
-            }
-
-            return mail;
-
-        }
-
-    }
-
- ******************************/
-
-
 
     public static final String AUSTIN_POWERS = "Austin Powers";
     public static final String WEAPONS = "weapons";
