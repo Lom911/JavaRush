@@ -14,7 +14,7 @@ public class SimvolToByte {
 
             System.out.println( 'A' + "12" );
 
-            System.out.println( 'А' + '1' + "2" );
+
         }
     }
 }

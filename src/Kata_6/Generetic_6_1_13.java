@@ -33,63 +33,31 @@ public class Generetic_6_1_13 {
         for (int i = 0; i < array.size; i++) {
             System.out.print(array.get(i) + " ");
         }
-
     }
 
     public static class DynamicArray<T> {
-        private static final int DEF_SIZE = 10;
-        private T[] element;
+        private T[] element = (T[]) new Object[10];
         private int size;
-        private int index;
-
-        public DynamicArray() {
-            this.element = (T[]) new Object[DEF_SIZE];
-            this.size = 0;
-        }
 
         public void add(T el) {
             if (size == element.length) {
                 T[] oldElement = element;
                 this.element = (T[]) new Object[oldElement.length + oldElement.length / 2];
-                for (int i = 0; i < size; i++) {
-                    this.element[i] = oldElement[i];
-
-                }
+                System.arraycopy(oldElement, 0, this.element, 0, size);
             }
-            this.element[size] = el;
-            size++;
+            this.element[size++] = el;
         }
 
         public void remove(int index) {
-            this.index = index;
-
-            if (index < 0 || index >= element.length) {
-                throw new ArrayIndexOutOfBoundsException();
-            } else {
-                for (int i = index; i < element.length - 1; i++) {
-                    element[i] = element[i + 1];
-                    element[i + 1] = null;
-
-                }
+            System.arraycopy(element, index + 1, element, index, size - index - 1);
                 size--;
-
-            }
-
         }
 
         public T get(int index) {
-            this.index = index;
             if (index < 0 || index >= size) {
                 throw new ArrayIndexOutOfBoundsException();
             }
             return element[index];
         }
-
-
-//        public int size() {
-//            return element.length;
-//        }
     }
-
-
 }
