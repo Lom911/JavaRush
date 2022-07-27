@@ -19,9 +19,7 @@ public class StrMamaMila_7_2_12 {
                 .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .limit(10)
-                .map(entry -> entry.getKey())
+                .map(Map.Entry::getKey)
                 .forEach(System.out::println);
     }
-
-
 }//end
