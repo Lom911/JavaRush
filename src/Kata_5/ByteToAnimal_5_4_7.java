@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 
-public class ByteToAnimal {
+public class ByteToAnimal_5_4_7 {
     public static void main(String[] args) {
         Animal[] animals = new Animal[]
                 {new Animal("cat"),
@@ -47,20 +47,16 @@ public class ByteToAnimal {
                 animal[i] = (Animal) ois.readObject();
             }
             return animal;
-//        } catch (EOFException e) {
-//            throw new IllegalArgumentException(e);
         } catch (ClassNotFoundException e) {
             throw new IllegalArgumentException(e);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         } catch (ClassCastException e) {
             throw new IllegalArgumentException(e);
-//        } catch (NullPointerException e){
-//            throw new IllegalArgumentException(e);
         } catch (NegativeArraySizeException e){
             throw new IllegalArgumentException(e);
-        } catch (ArrayIndexOutOfBoundsException e){
-            throw new IllegalArgumentException(e);
+//        } catch (ArrayIndexOutOfBoundsException e){
+//            throw new IllegalArgumentException(e);
         }
     }
 

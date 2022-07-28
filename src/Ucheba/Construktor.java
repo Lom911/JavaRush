@@ -30,11 +30,13 @@ public class Construktor {
         t.snyatie(0);
         t.popolnenieSheta(14.45);
         System.out.println(t.balance);
-        double a = 295.04;
-        int b = 300;
-        byte c = (byte) a;
-        byte d = (byte) b;
-        System.out.println(c + " " + d);
+
+        int i;
+        byte x = 64;
+        byte y;
+        i = x << 2;
+        y = (byte)(x << 2);
+        System.out.println(i + " " + y);
 
     }
 

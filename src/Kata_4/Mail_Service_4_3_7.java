@@ -3,7 +3,7 @@ package Kata_4;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Mail_Service {
+public class Mail_Service_4_3_7 {
 /*
 1) UntrustworthyMailWorker – класс, моделирующий ненадежного работника почты, который вместо того, чтобы передать
 почтовый объект непосредственно в сервис почты, последовательно передает этот объект набору третьих лиц, а затем,
@@ -121,7 +121,7 @@ public static class UntrustworthyMailWorker implements MailService {
     public static final String BANNED_SUBSTANCE = "banned substance";
 
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger(Mail_Service.class.getName());
+        Logger logger = Logger.getLogger(Mail_Service_4_3_7.class.getName());
 
         Inspector inspector = new Inspector();
         Spy spy = new Spy(logger);
